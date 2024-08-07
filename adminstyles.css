@@ -1,0 +1,48 @@
+body {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #4e73df;
+    color: white;
+    height: 100vh;
+    padding: 15px;
+}
+
+.sidebar a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #2e59d9;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fc;
+    margin-bottom: 20px;
+}
+
+.header input {
+    margin-right: 10px;
+}
+
+.header button {
+    margin-left: 10px;
+}
+
+.table-container {
+    margin-top: 20px;
+}

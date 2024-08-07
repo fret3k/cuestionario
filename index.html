@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario PHQ-9</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .btn-admin {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .btn-aceptar {
+            margin-top: 10px;
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container h2 {
+            font-size: 1.1em;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .container h3 {
+            font-size: 1.1em;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .container h4 {
+            font-size: 1.1em;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .container p, .container ol {
+            margin-bottom: 15px;
+        }
+        .container ol {
+            padding-left: 20px;
+        }
+        .container textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body >
+    <button class="btn btn-primary btn-admin" onclick="abriradmin('login')" >Admin</button>
+
+    <div class="container" >
+        <h1>Cuestionario sobre Salud Personal-9 (PHQ-9)</h1>
+        
+            <h2>CONSENTIMIENTO PARA PARTICIPAR</h2>
+            <p><strong>Título del estudio:</strong> Acompañamiento biopsicosocial a mujeres vulnerables en Perú</p>
+            
+            <h3>Introducción</h3>
+            <p>Nuestros nombres son Eliana Ibarra, profesora de Psicología de la Universidad San Antonio Abad de Cusco y Yolanda García Vázquez, profesora de Trabajo Social especializada en salud biopsicosocial de la Universidad de Vigo.</p>
+            <p>En colaboración, las universidades de San Antonia Abad de Cusco-Perú y las de Santiago de Compostela y Vigo de España, estamos planeando llevar a cabo un estudio de investigación, al cual te invito a participar.</p>
+            
+            <h3>Propósito</h3>
+            <p>Nuestro objetivo es crear y desarrollar un servicio de acompañamiento para la mejora de la salud de las mujeres en Perú utilizando los teléfonos móviles.</p>
+            
+            <h3>Procedimientos</h3>
+            <p>Si decides participar en este estudio, te pediremos que hagas lo siguiente:</p>
+            <ol>
+                <li>Atender y leer los mensajes con consejos saludables que recibirás en tu teléfono móvil y responder libremente cuando lo prefieras.</li>
+                <li>Participar cuando puedas en reuniones en grupo para comentar los consejos saludables.</li>
+                <li>Debes responder a cuestionarios sencillos de duración aproximada de 1 a 5 minutos. Eres libre de saltarse cualquier pregunta que no desees responder.</li>
+            </ol>
+            <p>Eres libre de poner fin a tu participación en el estudio en cualquier momento.</p>
+            
+            <h3>Beneficios</h3>
+            <p>El beneficio directo para ti por participar en este estudio será la posibilidad de recibir atención y consejo para la mejora de tu salud. Además, se espera que la información obtenida en el estudio pueda mejorar la atención social y de salud a otras mujeres de Perú y de España.</p>
+            
+            <h3>Molestias</h3>
+            <p>No contemplamos molestias. Eres libre de saltarse cualquier pregunta de los cuestionarios que prefieras no responder por cualquier motivo.</p>
+            
+            <h3>Confidencialidad</h3>
+            <p>Vamos a mantener tus datos de estudio con confidencialidad. Los datos del estudio se mantendrán en formato digital cifrado en un equipo informático protegido por contraseña. El archivo de claves que contengan tu nombre y número de teléfono se mantendrá por separado y totalmente resguardados.</p>
+            
+            <h4>Costes de participación en el estudio</h4>
+        
+        <button class="btn btn-primary btn-aceptar" onclick="abriradmin('registro')"   >Aceptar</button>
+    </div>
+    <script>
+        function abriradmin(destino){
+            window.location.href= 'index.php?destino='+destino;
+        }
+    </script>  
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

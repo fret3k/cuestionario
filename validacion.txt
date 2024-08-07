@@ -1,0 +1,159 @@
+const nombre = document.getElementById("nombre")
+const apellido = document.getElementById("apellido")
+const telefono = document.getElementById("telefono")
+const form = document.getElementById("form")
+const parrafo = document.getElementById("warnings")
+
+form.addEventListener("submit", e=>{
+    e.preventDefault()
+    let warnings=""
+    let entrar = false
+    
+
+})
+
+
+
+//eader("location:cuestionario.html");
+//llamar a la conexin
+require 'conexion.php';
+
+//clave unica
+function generarClaveUnica() {
+    // Genera una cadena de 16 bytes aleatorios y la convierte a hexadecimal
+    $bytesAleatorios = bin2hex(random_bytes(16));
+    
+    // Genera una ID única basada en la época Unix
+    $idUnica = uniqid();
+    
+    // Combina las dos cadenas para obtener una clave única
+    $claveUnica = $idUnica . $bytesAleatorios;
+    
+    return $claveUnica;
+}
+// Obtener datos del formulario
+$idCliente=generarClaveUnica();;
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$telefono = $_POST['telefono'];
+$nombre_grupo = 'q00011';
+$fechaRegistro =date('y-m-d');
+
+/*
+if (empty($nombre)) {
+    die("El nombre es  requerido.");
+}
+if (empty($apellido)) {
+    die("El apellido es  requerido.");
+}
+if (empty($telefono)) {
+    die("El telefono es  requerido.");
+}   */
+
+// Consulta SQL para insertar datos
+$sql = "INSERT INTO tcliente  VALUES 
+('$idCliente','$nombre', '$apellido', '$telefono','$nombre_grupo','$fechaRegistro')";
+
+if ($conn->query($sql) === TRUE) {
+
+    echo "Registro exitoso";
+   header("Location: cuestionario.html?idCliente=$idCliente");
+  
+} else {
+    echo "Error el la conexion a la base de datos: ";
+}
+
+//header("location:cuestionario.html");
+//$conn->close();
+
+
+
+<?php
+require 'conexion.php';
+
+//clave unica
+function generarClaveUnica() {
+    $bytesAleatorios = bin2hex(random_bytes(16));
+    $idUnica = uniqid();
+    $claveUnica = $idUnica . $bytesAleatorios;
+    
+    return $claveUnica;
+}
+// Obtener datos del formulario
+$idCliente=generarClaveUnica();
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$telefono = $_POST['telefono'];
+$nombre_grupo = 'q00011';
+$fechaRegistro =date('y-m-d');
+
+$idCuestionario = generarClaveUnica();
+$q1 = $_POST['q1'];
+$q2 = $_POST['q2'];
+$q3 = $_POST['q3'];
+$q4 = $_POST['q4'];
+$q5 = $_POST['q5'];
+$q6 = $_POST['q6'];
+$q7 = $_POST['q7'];
+$q8 = $_POST['q8'];
+$q9 = $_POST['q9'];
+$q10 = $_POST['q10'];
+$q11 = $_POST['q11'];
+$q12 = $_POST['q12'];
+$q13 = 'asasc';
+$q14 = 'szdv';
+$puntuacion = 1477;
+echo 'el id es :';
+echo $idenviado;
+
+
+/*
+if (empty($nombre)) {
+    die("El nombre es  requerido.");
+}
+if (empty($apellido)) {
+    die("El apellido es  requerido.");
+}
+if (empty($telefono)) {
+    die("El telefono es  requerido.");
+}   */
+
+// Consulta SQL para insertar datos
+$sql = "INSERT INTO tcliente  VALUES 
+('$idCliente','$nombre', '$apellido', '$telefono','$nombre_grupo','$fechaRegistro')";
+
+if ($conn->query($sql) === TRUE) {
+    //$idenviado=$idCliente;
+    echo "Registro exitoso";
+  header("Location: cuestionario.html");
+  // header("Location: cuestionario.html?idClientes=$idCliente");
+  
+} else {
+    echo "Error el la conexion a la base de datos: ";
+}
+
+$sql1 = "INSERT INTO trespuestascliente 
+        VALUES ('$idCuestionario', '$q1', '$q2', '$q3'
+        , '$q4', '$q5', '$q6', '$q7', '$q8', '$q9', '$q10',
+         '$q11', '$q12', '$q13', '$q14', '$puntuacion', '$idCliente')";
+
+if ($conn->query($sql1) === TRUE) {
+    echo "Datos registrados exitosamente en la nueva tabla.";
+} else {
+    echo "Error al insertar datos en la nueva tabla: " . $conn->error;
+}
+//header("location:cuestionario.html");
+//$conn->close();
+
+// Capturar el idCliente desde la URL
+//$idCliente = $_GET['idClientes'];
+
+// Obtener datos del formulario
+//$idCliente = '66a32dc84a9e67b3087f0cf66f3956dc';
+
+// Consulta SQL para insertar datos en la nueva tabla
+
+
+$conn->close();
+
+

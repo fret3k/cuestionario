@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de clientes</title>
+    <!-- Incluir Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .hidden {
+            display: none;
+            }
+            .wide-display {
+            width: 100%; /* O el ancho deseado, por ejemplo, 80% o una cantidad específica como 500px */
+            max-width: 1080px; /* Limitar el ancho máximo */
+            margin: 0 auto; /* Centrar el contenedor */
+        
+            body {
+      background: linear-gradient(to right, #00aaff, #0044cc); /* Fondo degradado azul claro a azul oscuro */
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #registro-card {
+      background: linear-gradient(to right, #4a148c, #00bcd4); /* Fondo degradado de morado oscuro a celeste */
+      color: #fff; /* Texto blanco para contraste */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .form-group label {
+      color: #fff; /* Etiquetas en blanco para contraste */
+    }
+    .btn-primary {
+      background-color: #ffffff;
+      color: #4a148c;
+      border-color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: #e0e0e0;
+      color: #4a148c;
+      border-color: #e0e0e0;
+    }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div id="registro-card" class="card">
+                    <div class="card-header">
+                        Registrar
+                    </div>
+                    
+                    <div class="card-body">
+                        <form id="registro-form">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" >
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido"  >
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono"  >
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="mostrarCuestionario()">Siguiente  </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="cuestionario-card" class="card hidden">
+                    <div class="card-header">
+                        Cuestionario sobre Salud Personal-9 (PHQ-9)
+                    </div>
+                    <div class="card-header" >
+                        El presente cuestionario tiene como objetivo consultar respecto a tu salud personal. 
+                        Durante las últimas 2 semanas,
+                        ¿qué tan seguido has tenido molestias debido a los problemas que se mencionan en cada pregunta? 
+                        Marca tu respuesta según esta escala:
+                    </div>
+                    <div class="card-body">
+                        <form id="cuestionario-form" action="prueba.php" method="POST">
+                            <input type="hidden" id="hidden-nombre" name="nombre" >
+                            <input type="hidden" id="hidden-apellido" name="apellido" >
+                            <input type="hidden" id="hidden-telefono" name="telefono" >
+                            <!-- Preguntas del cuestionario -->
+                            <ol>
+                                <li>
+                                    ¿Qué tan seguido has tenido poco interés o placer en hacer cosas?
+                                    <div class="options">
+                                        <input type="radio" name="q1" id="q1-0" value="0" required>
+                                        <label for="q1-0" class="label-green">0</label>
+                                        <input type="radio" name="q1" id="q1-1" value="1">
+                                        <label for="q1-1" class="label-yellow">1</label>
+                                        <input type="radio" name="q1" id="q1-2" value="2">
+                                        <label for="q1-2" class="label-orange">2</label>
+                                        <input type="radio" name="q1" id="q1-3" value="3">
+                                        <label for="q1-3" class="label-red">3</label>
+                                    </div>
+                                </li>
+                                <!-- Agrega más preguntas según sea necesario -->
+                                <!-- ... -->
+                            </ol>
+                            <ol>
+                                <li>
+                                <!--1-->
+                                ¿Qué tan seguido has tenido poco interés o placer en hacer cosas?
+                                <div class="options">
+                                    <input type="radio" name="q1" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q1" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q1" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q1" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                                <li>
+                                <!--2-->
+                                ¿Te has sentido decaída, deprimida o sin esperanzas?
+                                <div class="options">
+                                    <input type="radio" name="q2" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q2" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q2" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q2" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                                <li>
+                                <!--3-->
+                                ¿Has tenido dificultades para lograr dormir o permanecer dormida o has
+                    dormido demasiado?
+                                <div class="options">
+                                    <input type="radio" name="q3" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q3" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q3" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q3" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                ¿Te has sentido cansada o con poca energia?
+                                <div class="options">
+                                    <input type="radio" name="q4" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q4" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q4" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q4" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                ¿Has estado sin ganas de comer o has comido en exceso? 
+                                <div class="options">
+                                    <input type="radio" name="q5" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q5" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q5" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q5" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                ¿Te has sentido mal contigo misma, o piensas que fracasaste o que has
+                                quedado mal contigo misma o con tu familia?
+                                <div class="options">
+                                    <input type="radio" name="q6" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q6" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q6" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q6" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                    ¿Has tenido dificultades para concentrarte en algunas actividades, tales
+                    como leer o ver la televisión?
+                    
+                                <div class="options">
+                                    <input type="radio" name="q7" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q7" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q7" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q7" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                                <li>
+                                ¿Te has movido o hablado tan lento que otras personas podrían haberlo
+                                notado? ¿o por el contrario has estado muy inquieta o agitada, moviéndote
+                                mucho más de lo normal?
+                                <div class="options">
+                                    <input type="radio" name="q8" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q8" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q8" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q8" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                ¿Has tenido pensamientos como: "estaría mejor muerta" o has pensado en
+                                    lastimarte de alguna manera?
+                                <div class="options">
+                                    <input type="radio" name="q9" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q9" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q9" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q9" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                                <li>
+                                Si marcaste cualquiera de los problemas anteriores con un nivel mayor a 0
+                    ¿Qué tanta dificultad te han ocasionado en tus quehaceres como: trabajo, tareas
+                    del hogar, o llevarte bien con otras personas?
+                                <div class="options">
+                                    <input type="radio" name="q10" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">0</label>
+                                    <input type="radio" name="q10" id="q1-1" value="1">
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q10" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q10" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                <!--9 opcion-->
+                                ¿Cómo está tu estado de ánimo el día de hoy en la escala del 1 al 9?
+                                <div class="options">
+                    
+                                    <input type="radio" name="q11" id="q1-1" value="1" required>
+                                    <label for="q1-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q11" id="q1-2" value="2">
+                                    <label for="q1-2" class="label-orange">2</label>
+                                    <input type="radio" name="q11" id="q1-3" value="3">
+                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q11" id="q1-4" value="4">
+                                    <label for="q1-4" class="label-red">4</label>
+                                    <input type="radio" name="q11" id="q1-5" value="5">
+                                    <label for="q1-5" class="label-red">5</label>
+                                    <input type="radio" name="q11" id="q1-6" value="6">
+                                    <label for="q1-6" class="label-red">6</label>
+                                    <input type="radio" name="q11" id="q1-7" value="7">
+                                    <label for="q1-7" class="label-red">7</label>
+                                    <input type="radio" name="q11" id="q1-8" value="8">
+                                    <label for="q1-8" class="label-red">8</label>
+                                    <input type="radio" name="q11" id="q1-9" value="9">
+                                    <label for="q1-9" class="label-red">9</label>
+                                </div>
+                                </li>
+                    
+                    
+                                <li>
+                                ¿Sufriste algún tipo de violencia? 
+                                <div class="options">
+                                    <input type="radio" name="q12" id="q1-0" value="0" required>
+                                    <label for="q1-0" class="label-green">si</label>
+                                    <input type="radio" name="q12" id="q1-1" value="1">
+                                    <label for="q1-0" class="label-green">no</label>
+                                    
+                                </div>
+                                </li>
+
+                                
+                                    <li>
+                                    Si la respuesta anterior fue "SI", de parte de quién?
+                                    <div class="mb-3">
+                                    
+                                        <textarea id="q13_1" name="q13" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
+                                        
+                                    </div>
+                                    </li>
+                                
+                                
+                                    <li>
+                                    Observaciones
+                                    
+                                    <div class="mb-3">
+                                        
+                                        <textarea id="q14_1" name="q14" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
+                                    </div>
+                                    </li>
+                                
+                            <input type="submit" class="btn btn-primary" value="Registrar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
