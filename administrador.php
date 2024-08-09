@@ -10,11 +10,11 @@ $response = [];
 
 $servidor = 'localhost'; // servidor de la base de datos
 $usuario = 'root'; // usuario de la base de datos
-$contraseña ='' ; // contraseña de la base de datos
+$contrasenia ='' ; // contraseña de la base de datos
 $base_de_datos = 'dbquestionario'; // nombre de la base de datos
 
 // Crear conexión
-$conn = new mysqli($servidor, $usuario, $contraseña, $base_de_datos);
+$conn = new mysqli($servidor, $usuario, $contrasenia, $base_de_datos);
 
 
 // Verificar conexión
