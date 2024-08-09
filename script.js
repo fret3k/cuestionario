@@ -3,7 +3,7 @@ function mostrarCuestionario() {
     const apellido = document.getElementById('apellido').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
 
-
+/*
     if (nombre === '') {
         alert('El nombre es requerido.');
         return;
@@ -21,7 +21,7 @@ function mostrarCuestionario() {
         alert('El teléfono debe contener 9 dígitos numéricos.');
         return;
     }
-
+*/
 
     document.getElementById('hidden-nombre').value = nombre;
     document.getElementById('hidden-apellido').value = apellido;

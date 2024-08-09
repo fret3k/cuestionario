@@ -6,46 +6,9 @@
     <title>Registro de clientes</title>
     <!-- Incluir Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .hidden {
-            display: none;
-            }
-            .wide-display {
-            width: 100%; /* O el ancho deseado, por ejemplo, 80% o una cantidad específica como 500px */
-            max-width: 1080px; /* Limitar el ancho máximo */
-            margin: 0 auto; /* Centrar el contenedor */
-        
-            body {
-      background: linear-gradient(to right, #00aaff, #0044cc); /* Fondo degradado azul claro a azul oscuro */
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #registro-card {
-      background: linear-gradient(to right, #4a148c, #00bcd4); /* Fondo degradado de morado oscuro a celeste */
-      color: #fff; /* Texto blanco para contraste */
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-    .form-group label {
-      color: #fff; /* Etiquetas en blanco para contraste */
-    }
-    .btn-primary {
-      background-color: #ffffff;
-      color: #4a148c;
-      border-color: #ffffff;
-    }
-    .btn-primary:hover {
-      background-color: #e0e0e0;
-      color: #4a148c;
-      border-color: #e0e0e0;
-    }
+    
+    <link rel="stylesheet" href="stilos/styles_prueba.css">
 
-        }
-    </style>
 </head>
 <body>
     <div class="container mt-4">
@@ -107,35 +70,18 @@
                                 </li>
                                 <!-- Agrega más preguntas según sea necesario -->
                                 <!-- ... -->
-                            </ol>
-                            <ol>
-                                <li>
-                                <!--1-->
-                                ¿Qué tan seguido has tenido poco interés o placer en hacer cosas?
-                                <div class="options">
-                                    <input type="radio" name="q1" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q1" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q1" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q1" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
-                                </div>
-                                </li>
-                    
                                 <li>
                                 <!--2-->
                                 ¿Te has sentido decaída, deprimida o sin esperanzas?
                                 <div class="options">
-                                    <input type="radio" name="q2" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q2" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q2" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q2" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q2" id="q2-0" value="0" required>
+                                    <label for="q2-0" class="label-green">0</label>
+                                    <input type="radio" name="q2" id="q2-1" value="1">
+                                    <label for="q2-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q2" id="q2-2" value="2">
+                                    <label for="q2-2" class="label-orange">2</label>
+                                    <input type="radio" name="q2" id="q2-3" value="3">
+                                    <label for="q2-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -144,14 +90,14 @@
                                 ¿Has tenido dificultades para lograr dormir o permanecer dormida o has
                     dormido demasiado?
                                 <div class="options">
-                                    <input type="radio" name="q3" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q3" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q3" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q3" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q3" id="q3-0" value="0" required>
+                                    <label for="q3-0" class="label-green">0</label>
+                                    <input type="radio" name="q3" id="q3-1" value="1">
+                                    <label for="q3-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q3" id="q3-2" value="2">
+                                    <label for="q3-2" class="label-orange">2</label>
+                                    <input type="radio" name="q3" id="q3-3" value="3">
+                                    <label for="q3-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -159,14 +105,14 @@
                                 <li>
                                 ¿Te has sentido cansada o con poca energia?
                                 <div class="options">
-                                    <input type="radio" name="q4" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q4" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q4" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q4" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q4" id="q4-0" value="0" required>
+                                    <label for="q4-0" class="label-green">0</label>
+                                    <input type="radio" name="q4" id="q4-1" value="1">
+                                    <label for="q4-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q4" id="q4-2" value="2">
+                                    <label for="q4-2" class="label-orange">2</label>
+                                    <input type="radio" name="q4" id="q4-3" value="3">
+                                    <label for="q4-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -174,14 +120,14 @@
                                 <li>
                                 ¿Has estado sin ganas de comer o has comido en exceso? 
                                 <div class="options">
-                                    <input type="radio" name="q5" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q5" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q5" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q5" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q5" id="q5-0" value="0" required>
+                                    <label for="q5-0" class="label-green">0</label>
+                                    <input type="radio" name="q5" id="q5-1" value="1">
+                                    <label for="q5-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q5" id="q5-2" value="2">
+                                    <label for="q5-2" class="label-orange">2</label>
+                                    <input type="radio" name="q5" id="q5-3" value="3">
+                                    <label for="q5-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -190,14 +136,14 @@
                                 ¿Te has sentido mal contigo misma, o piensas que fracasaste o que has
                                 quedado mal contigo misma o con tu familia?
                                 <div class="options">
-                                    <input type="radio" name="q6" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q6" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q6" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q6" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q6" id="q6-0" value="0" required>
+                                    <label for="q6-0" class="label-green">0</label>
+                                    <input type="radio" name="q6" id="q6-1" value="1">
+                                    <label for="q6-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q6" id="q6-2" value="2">
+                                    <label for="q6-2" class="label-orange">2</label>
+                                    <input type="radio" name="q6" id="q6-3" value="3">
+                                    <label for="q6-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -207,14 +153,14 @@
                     como leer o ver la televisión?
                     
                                 <div class="options">
-                                    <input type="radio" name="q7" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q7" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q7" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q7" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q7" id="q7-0" value="0" required>
+                                    <label for="q7-0" class="label-green">0</label>
+                                    <input type="radio" name="q7" id="q7-1" value="1">
+                                    <label for="q7-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q7" id="q7-2" value="2">
+                                    <label for="q7-2" class="label-orange">2</label>
+                                    <input type="radio" name="q7" id="q7-3" value="3">
+                                    <label for="q7-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -223,14 +169,14 @@
                                 notado? ¿o por el contrario has estado muy inquieta o agitada, moviéndote
                                 mucho más de lo normal?
                                 <div class="options">
-                                    <input type="radio" name="q8" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q8" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q8" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q8" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q8" id="q8-0" value="0" required>
+                                    <label for="q8-0" class="label-green">0</label>
+                                    <input type="radio" name="q8" id="q8-1" value="1">
+                                    <label for="q8-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q8" id="q8-2" value="2">
+                                    <label for="q8-2" class="label-orange">2</label>
+                                    <input type="radio" name="q8" id="q8-3" value="3">
+                                    <label for="q8-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -239,14 +185,14 @@
                                 ¿Has tenido pensamientos como: "estaría mejor muerta" o has pensado en
                                     lastimarte de alguna manera?
                                 <div class="options">
-                                    <input type="radio" name="q9" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q9" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q9" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q9" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q9" id="q9-0" value="0" required>
+                                    <label for="q9-0" class="label-green">0</label>
+                                    <input type="radio" name="q9" id="q9-1" value="1">
+                                    <label for="q9-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q9" id="q9-2" value="2">
+                                    <label for="q9-2" class="label-orange">2</label>
+                                    <input type="radio" name="q9" id="q9-3" value="3">
+                                    <label for="q9-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -255,14 +201,14 @@
                     ¿Qué tanta dificultad te han ocasionado en tus quehaceres como: trabajo, tareas
                     del hogar, o llevarte bien con otras personas?
                                 <div class="options">
-                                    <input type="radio" name="q10" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">0</label>
-                                    <input type="radio" name="q10" id="q1-1" value="1">
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q10" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q10" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
+                                    <input type="radio" name="q10" id="q10-0" value="0" required>
+                                    <label for="q10-0" class="label-green">0</label>
+                                    <input type="radio" name="q10" id="q10-1" value="1">
+                                    <label for="q10-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q10" id="q10-2" value="2">
+                                    <label for="q10-2" class="label-orange">2</label>
+                                    <input type="radio" name="q10" id="q10-3" value="3">
+                                    <label for="q10-3" class="label-red">3</label>
                                 </div>
                                 </li>
                     
@@ -272,24 +218,24 @@
                                 ¿Cómo está tu estado de ánimo el día de hoy en la escala del 1 al 9?
                                 <div class="options">
                     
-                                    <input type="radio" name="q11" id="q1-1" value="1" required>
-                                    <label for="q1-1" class="label-yellow">1</label>
-                                    <input type="radio" name="q11" id="q1-2" value="2">
-                                    <label for="q1-2" class="label-orange">2</label>
-                                    <input type="radio" name="q11" id="q1-3" value="3">
-                                    <label for="q1-3" class="label-red">3</label>
-                                    <input type="radio" name="q11" id="q1-4" value="4">
-                                    <label for="q1-4" class="label-red">4</label>
-                                    <input type="radio" name="q11" id="q1-5" value="5">
-                                    <label for="q1-5" class="label-red">5</label>
-                                    <input type="radio" name="q11" id="q1-6" value="6">
-                                    <label for="q1-6" class="label-red">6</label>
-                                    <input type="radio" name="q11" id="q1-7" value="7">
-                                    <label for="q1-7" class="label-red">7</label>
-                                    <input type="radio" name="q11" id="q1-8" value="8">
-                                    <label for="q1-8" class="label-red">8</label>
-                                    <input type="radio" name="q11" id="q1-9" value="9">
-                                    <label for="q1-9" class="label-red">9</label>
+                                    <input type="radio" name="q11" id="q11-1" value="1" >
+                                    <label for="q11-1" class="label-yellow">1</label>
+                                    <input type="radio" name="q11" id="q11-2" value="2">
+                                    <label for="q11-2" class="label-orange">2</label>
+                                    <input type="radio" name="q11" id="q11-3" value="3">
+                                    <label for="q11-3" class="label-red">3</label>
+                                    <input type="radio" name="q11" id="q11-4" value="4">
+                                    <label for="q11-4" class="label-red">4</label>
+                                    <input type="radio" name="q11" id="q11-5" value="5">
+                                    <label for="q11-5" class="label-red">5</label>
+                                    <input type="radio" name="q11" id="q11-6" value="6">
+                                    <label for="q11-6" class="label-red">6</label>
+                                    <input type="radio" name="q11" id="q11-7" value="7">
+                                    <label for="q11-7" class="label-red">7</label>
+                                    <input type="radio" name="q11" id="q11-8" value="8">
+                                    <label for="q11-8" class="label-red">8</label>
+                                    <input type="radio" name="q11" id="q11-9" value="9">
+                                    <label for="q11-9" class="label-red">9</label>
                                 </div>
                                 </li>
                     
@@ -297,35 +243,33 @@
                                 <li>
                                 ¿Sufriste algún tipo de violencia? 
                                 <div class="options">
-                                    <input type="radio" name="q12" id="q1-0" value="0" required>
-                                    <label for="q1-0" class="label-green">si</label>
-                                    <input type="radio" name="q12" id="q1-1" value="1">
-                                    <label for="q1-0" class="label-green">no</label>
+                                    <input type="radio" name="q12" id="q12-0" value="0" >
+                                    <label for="q12-0" class="label-green">si</label>
+                                    <input type="radio" name="q12" id="q12-1" value="1">
+                                    <label for="q12-1" class="label-red">no</label>
                                     
                                 </div>
                                 </li>
 
                                 
-                                    <li>
-                                    Si la respuesta anterior fue "SI", de parte de quién?
-                                    <div class="mb-3">
-                                    
-                                        <textarea id="q13_1" name="q13" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
-                                        
+                                <li>
+                                    Si la respuesta anterior fue "SI", ¿de parte de quién?
+                                    <div class="mb-2">
+                                        <textarea id="q13_1" name="q13" class="custom-textarea" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
                                     </div>
-                                    </li>
-                                
+                                </li>
                                 
                                     <li>
                                     Observaciones
                                     
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         
-                                        <textarea id="q14_1" name="q14" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
+                                        <textarea id="q14_1" name="q14" class="custom-textarea" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
                                     </div>
                                     </li>
+                                </ol>
                                 
-                            <input type="submit" class="btn btn-primary" value="Registrar">
+                            <input type="submit" class="btn btn-primary" value="enviar">
                         </form>
                     </div>
                 </div>

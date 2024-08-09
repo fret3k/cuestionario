@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre_grupo = 'C0001';
     $fechaRegistro = date("Y-m-d ");
  
-    // Puedes agregar más preguntas aquí
+    /*/ Puedes agregar más preguntas aquí
   // Validar nombre
   // Validar nombre
     if (empty($nombre)) {
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!preg_match("/^[0-9]{9}$/", $telefono)) {
         die("El teléfono debe contener 9 dígitos numéricos.");
     }
-
+  */
 }
     //clave unica
 $idCuestionario = generarClaveUnica1();

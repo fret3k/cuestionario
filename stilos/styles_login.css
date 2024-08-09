@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(to right, #00aaff, #0044cc); /* Degradado de azul claro a azul oscuro */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    background: rgba(255, 255, 255, 0.678); /* Fondo blanco con opacidad para transparencia */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.form-group input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.btn-primary {
+    background-color: #0044cc;
+    border-color: #0044cc;
+}
+.btn-primary:hover {
+    background-color: #003399;
+    border-color: #003399;
+}
