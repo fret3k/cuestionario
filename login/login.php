@@ -1,50 +1,44 @@
-<?php
-session_start();
-include('login_controller.php');
-
-$error = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    // Llama a la función del controlador para manejar el inicio de sesión
-    $error = handle_login($username, $password);
-}
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stilos/styles_login.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 mt-5">
-                <h2 class="text-center">Iniciar sesión</h2>
-                <?php if (!empty($error)): ?>
-                    <div class="alert alert-danger">
-                        <?php echo htmlspecialchars($error); ?>
-                    </div>
-                <?php endif; ?>
-                <form method="post" action="login.php">
-                    <div class="form-group">
-                        <label for="username">Nombre de usuario:</label>
-                        <input type="text" id="username" name="username" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-                </form>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <!-- Contenedor para el mensaje de error -->
+        <?php if (isset($_GET['error']) && $_GET['error'] == 'true'): ?>
+        <div id="error-message" class="alert alert-danger">
+          <strong>Error:</strong> Nombre de usuario o contraseña incorrectos.
         </div>
+        <?php endif; ?>
+        <!-- Formulario de inicio de sesión -->
+        <form action="login_controller.php" method="POST">
+          <h2 class="mt-5 mb-4">Iniciar sesión</h2>
+          <!-- Campo de entrada para el nombre de usuario -->
+          <div class="form-group">
+            <input type="text" class="form-control" name="nombre_user" placeholder="Nombre de usuario" required>
+          </div>
+          <!-- Campo de entrada para la contraseña -->
+          <div class="form-group">
+            <input type="password" class="form-control" name="contrasenia" placeholder="Contraseña" required>
+          </div>
+          <!-- Botón para enviar el formulario -->
+          <button type="submit" class="btn btn-primary" name="login">Iniciar sesión</button>
+        </form>
+      </div>
+      <!-- Columna para la imagen -->
+      <div class="col-md-6 col-lg-4 d-none d-md-block">
+        <img src="../img/img_1.png" alt="segurt" class="img-fluid">
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,49 +1,38 @@
 <?php
-include('../conexion.php'); // Incluye la configuración de la base de datos
-include('login.php'); // Incluye el archivo que inicia la sesión
+session_start();
+$error = false;
 
-function authenticate_user($username, $password) {
-    global $conn;
-    
-    $sql = "SELECT * FROM `user` WHERE `user` = ?";
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        
-        if ($result->num_rows == 1) {
-            $user = $result->fetch_assoc();
-            
-            if (password_verify($password, $user['contrasenia'])) {
-                return $user; // Autenticación exitosa
-            }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    // Conexión a la base de datos
+    require_once 'conexion.php';
+
+    // Obtener datos del formulario
+    $nombre_user = $conn->real_escape_string($_POST['nombre_user']);
+    $contrasenia = $conn->real_escape_string($_POST['contrasenia']);
+
+    // Consulta para verificar usuario y rol
+    $sql = "SELECT * FROM user WHERE user='$nombre_user' AND contrasenia='$contrasenia'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Datos de la fila
+        $row = $result->fetch_assoc();
+        $_SESSION['username'] = $row['user'];
+        $_SESSION['rol'] = $row['rol'];
+
+        // Redirección según el rol
+        if ($row['rol'] == 'administrador') {
+            header("Location: administrador.php");
+        } else {
+            header("Location: user_dashboard.php");
         }
-        return false; // Autenticación fallida
-    }
-    return false;
-}
-
-function handle_login($username, $password) {
-    $user = authenticate_user($username, $password);
-    
-    if ($user) {
-        $_SESSION['id_user'] = $user['id_user'];
-        $_SESSION['user'] = $user['user'];
-        $_SESSION['nombre'] = $user['nombre'];
-        $_SESSION['apellidos'] = $user['apellidos'];
-        $_SESSION['rol'] = $user['rol'];
-        
-        header("Location: welcome.php");
         exit;
     } else {
-        return "Nombre de usuario o contraseña incorrectos.";
+        $error = true;
+        header("Location: login.php?error=true");
+        //header("Location: login");
     }
-}
 
-function check_role($required_role) {
-    if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== $required_role) {
-        header("Location: login.php");
-        exit;
-    }
+    $conn->close();
 }
 ?>
