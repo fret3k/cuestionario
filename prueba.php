@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = $_POST['telefono'];
     $nombre_grupo = 'C0001';
     $fechaRegistro = date("Y-m-d ");
- 
+    $localidad = 'cuzco';
 
   // Validar nombre
   // Validar nombre
@@ -59,7 +59,7 @@ echo 'el id es :';
 
 // Consulta SQL para insertar datos en la nueva tabla
 $sql = "INSERT INTO tcliente  VALUES 
-('$idCliente','$nombre', '$apellido', '$telefono','$nombre_grupo','$fechaRegistro')";
+('$idCliente','$nombre', '$apellido', '$telefono','$nombre_grupo','$fechaRegistro','$localidad')";
 
 
 $sql1 = "INSERT INTO trespuestascliente 

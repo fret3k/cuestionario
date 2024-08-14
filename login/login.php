@@ -34,7 +34,7 @@
       </div>
       <!-- Columna para la imagen -->
       <div class="col-md-6 col-lg-4 d-none d-md-block">
-        <img src="../img/img_1.png" alt="segurt" class="img-fluid">
+        <img src="../img/1_img.png" alt="segurt" class="img-fluid">
       </div>
     </div>
   </div>

@@ -4,18 +4,25 @@
 
 .wide-display {
     width: 100%; /* O el ancho deseado, por ejemplo, 80% o una cantidad específica como 500px */
-    max-width: 1080px; /* Limitar el ancho máximo */
-    margin: 0 auto; /* Centrar el contenedor */
+    max-width: 180px; /* Limitar el ancho máximo */
+    margin: 800px; /* Centrar el contenedor */
 }
 
 /* Estilos para el fondo de la página */
 body {
-    background: linear-gradient(to right, #00aaff, #0044cc); /* Fondo degradado azul claro a azul oscuro */
+    /* Fondo degradado azul claro a azul oscuro */
+    background: linear-gradient(to right, #00aaff, #0044cc);
     height: 100vh;
     margin: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start; /* Cambiado a flex-start para evitar centrar verticalmente */
+    justify-content: center; /* Centramos el contenido horizontalmente */
+    padding: 20px; /* Añadir algo de espacio interno alrededor del contenido */
+}
+
+.container {
+    width: 150%; /* Ocupa el 100% del ancho disponible */
+    max-width: 2160px; /* Limita el ancho máximo para que no se vea demasiado ancho en pantallas grandes */
 }
 
 /* Estilos para el cuadro de registro con fondo transparente */
@@ -127,19 +134,19 @@ textarea.custom-textarea {
 /* Colores para las opciones */
 
 .label-green {
-    background-color: #dc3545; /* Verde */
+    background-color:  #28a745; /* Verde */
 }
 
 .label-yellow {
-    background-color: #fd7e14; /* Amarillo */
+    background-color:  #ffc107; /* Amarillo */
 }
 
 .label-orange {
-    background-color: #ffc107; /* Naranja */
+    background-color:  #fd7e14; /* Naranja */
 }
 
 .label-red {
-    background-color: #28a745; /* Rojo */
+    background-color:  #dc3545; /* Rojo */
 }
 
 
