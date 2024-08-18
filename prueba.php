@@ -17,11 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $telefono = $_POST['telefono'];
-    $nombre_grupo = 'C0001';
+    $localidad = $_POST['localidad'];
     $fechaRegistro = date("Y-m-d ");
-    $localidad = 'cuzco';
+    
 
-  // Validar nombre
+
   // Validar nombre
     if (empty($nombre)) {
         die("El nombre es requerido.");
@@ -35,6 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar teléfono (debe ser un número válido, opcionalmente puedes agregar más validaciones)
     if (!preg_match("/^[0-9]{9}$/", $telefono)) {
         die("El teléfono debe contener 9 dígitos numéricos.");
+    }
+
+    if (empty($localidad)) {
+        die("la localidad es requerido.");
     }
 
 }
@@ -54,18 +58,19 @@ $q11 = $_POST['q11'];
 $q12 = $_POST['q12'];
 $q13 = $_POST['q13'];
 $q14 = $_POST['q14'];
+$encuestador = $_POST['encuestador'];
 $puntuacion = $q1+$q2+$q3+$q4+$q5+$q6+$q7+$q8+$q9+$q10;
 echo 'el id es :';
 
 // Consulta SQL para insertar datos en la nueva tabla
 $sql = "INSERT INTO tcliente  VALUES 
-('$idCliente','$nombre', '$apellido', '$telefono','$nombre_grupo','$fechaRegistro','$localidad')";
+('$idCliente','$nombre', '$apellido', '$telefono','$fechaRegistro','$localidad')";
 
 
 $sql1 = "INSERT INTO trespuestascliente 
         VALUES ('$idCuestionario', '$q1', '$q2', '$q3'
         , '$q4', '$q5', '$q6', '$q7', '$q8', '$q9', '$q10',
-        '$q11', '$q12', '$q13', '$q14', '$puntuacion', '$idCliente')";
+        '$q11', '$q12', '$q13', '$q14', '$puntuacion', '$idCliente','$encuestador')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Datos registrados exitosamente en la nueva tabla.";
@@ -75,7 +80,7 @@ if ($conn->query($sql) === TRUE) {
 if ($conn->query($sql1) === TRUE) {
     echo "Datos registrados exitosamente en la nueva tabla.";
     echo "Registro exitoso";
-    header("Location: index.html");
+    header("Location: index.php");
 } else {
     echo "Error al insertar datos en la nueva tabla: " . $conn->error;
 }

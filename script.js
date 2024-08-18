@@ -2,6 +2,7 @@ function mostrarCuestionario() {
     const nombre = document.getElementById('nombre').value.trim();
     const apellido = document.getElementById('apellido').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
+    const localidad = document.getElementById('localidad').value.trim();
 
 
     if (nombre === '') {
@@ -22,11 +23,16 @@ function mostrarCuestionario() {
         return;
     }
 
+    if (localidad === '') {
+        alert('La localidad es requerido.');
+        return;
+    }
+
 
     document.getElementById('hidden-nombre').value = nombre;
     document.getElementById('hidden-apellido').value = apellido;
     document.getElementById('hidden-telefono').value = telefono;
-
+    document.getElementById('hidden-localidad').value = localidad;
 
     document.getElementById('registro-card').classList.add('hidden');
     document.getElementById('cuestionario-card').classList.remove('hidden');

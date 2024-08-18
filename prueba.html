@@ -34,6 +34,10 @@
                                 <label for="telefono">Teléfono</label>
                                 <input type="text" class="form-control" id="telefono" name="telefono"  >
                             </div>
+                            <div class="form-group">
+                                <label for="localidad">Localidad</label>
+                                <input type="text" class="form-control" id="localidad" name="localidad"  >
+                            </div>
                             <button type="button" class="btn btn-primary" onclick="mostrarCuestionario()">Siguiente  </button>
                         </form>
                     </div>
@@ -54,6 +58,7 @@
                             <input type="hidden" id="hidden-nombre" name="nombre" >
                             <input type="hidden" id="hidden-apellido" name="apellido" >
                             <input type="hidden" id="hidden-telefono" name="telefono" >
+                            <input type="hidden" id="hidden-localidad" name="localidad" >
                             <!-- Preguntas del cuestionario -->
                             <ol>
                                 <li>
@@ -254,7 +259,7 @@
 
                                 
                                 <li>
-                                    Si la respuesta anterior fue "SI", ¿de parte de quién?
+                                   ¿ Si la respuesta anterior fue "SI", ¿de parte de quién?
                                     <div class="mb-2">
                                         <textarea id="q13_1" name="q13" class="custom-textarea" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
                                     </div>
@@ -268,10 +273,18 @@
                                         <textarea id="q14_1" name="q14" class="custom-textarea" rows="5" placeholder="Escribe tu comentario aquí..."></textarea><br><br>
                                     </div>
                                     </li>
+
+                                    <li>
+                                    ¿ Reguiste el nombre del encueasdor o encuestadora?
+                                        <div class="mb-2">
+                                            <textarea id="encuestador" name="encuestador" class="custom-textarea" rows="5" placeholder="Escribe tel nombre aquí..."></textarea><br><br>
+                                        </div>
+                                    </li>
                                 </ol>
                                 
-                        <input type="submit" class="btn btn-primary" value="enviar">
-                            
+                        <!--<input type="submit" class="btn btn-primary" value="enviar">-->
+                        <input type="submit" id="submitBtn" class="btn btn-primary" value="enviar">
+
                         </form>
                     </div>
                 </div>
@@ -279,8 +292,55 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
- 
+    <script >function mostrarCuestionario() {
+        const nombre = document.getElementById('nombre').value.trim();
+        const apellido = document.getElementById('apellido').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const localidad = document.getElementById('localidad').value.trim();
+    
+    
+        if (nombre === '') {
+            alert('El nombre es requerido.');
+            return;
+        }
+    
+    
+        if (apellido === '') {
+            alert('El apellido es requerido.');
+            return;
+        }
+    
+    
+        const telefonoRegex = /^[0-9]{9}$/;
+        if (!telefonoRegex.test(telefono)) {
+            alert('El teléfono debe contener 9 dígitos numéricos.');
+            return;
+        }
+    
+        if (localidad === '') {
+            alert('La localidad es requerido.');
+            return;
+        }
+    
+    
+        document.getElementById('hidden-nombre').value = nombre;
+        document.getElementById('hidden-apellido').value = apellido;
+        document.getElementById('hidden-telefono').value = telefono;
+        document.getElementById('hidden-localidad').value = localidad;
+    
+        document.getElementById('registro-card').classList.add('hidden');
+        document.getElementById('cuestionario-card').classList.remove('hidden');
+    }</script>
+    <script>
+        
+document.getElementById('submitBtn').addEventListener('click', function(event) {
+    // Mostrar una alerta
+  alert('¡gracias por el participar en cuestionario !');
+  
+    // Para evitar el envío del formulario (si es necesario), descomenta la siguiente línea
+    // event.preventDefault();
+  });
+    </script>
 
 </body>
 </html>

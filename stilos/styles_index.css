@@ -1,74 +1,112 @@
-/* Fondo degradado de la página */
-body {
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-    background-size: cover; /* Asegura que el fondo cubra toda la página */
-    background-attachment: fixed; /* Fija el fondo al desplazamiento de la página */
-    background-repeat: no-repeat; /* Evita que el fondo se repita */
-    color: #fff; /* Color de texto blanco para contraste */
+/* General styles */
+html, body {
+    height: 100%; /* Asegura que el body ocupe toda la altura del viewport */
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; /* Fuente básica para el contenido */
 }
 
-/* Estilos para el contenedor principal */
+body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); /* Fondo degradado */
+    background-size: cover; /* Asegura que el degradado cubra toda el área del fondo */
+    background-position: center; /* Centra el degradado */
+}
+
+/* Container for the main content */
 .container {
-    background: rgba(0, 0, 0, 0.7); /* Fondo negro con opacidad para el contenedor */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más suave */
-    max-width: 800px; /* Ancho máximo del contenedor */
-    margin: 20px auto; /* Margen superior e inferior y centrado horizontal */
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+    padding: 30px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    color: white; /* Texto en blanco */
 }
 
-/* Estilo para los encabezados */
-h1, h2, h3, h4 {
-    color: #fff; /* Color blanco para los encabezados */
-    margin-bottom: 15px; /* Espacio debajo de los encabezados */
-}
-
-/* Estilo para los párrafos */
-p {
-    line-height: 1.6; /* Mejora la legibilidad */
-    margin-bottom: 15px; /* Espacio debajo de los párrafos */
-}
-
-/* Estilo para las listas ordenadas */
-ol {
-    margin-bottom: 15px; /* Espacio debajo de las listas */
-}
-
-/* Estilo para los botones */
-.btn-primary {
-    background-color: #ffffff;
-    color: #4a148c;
-    border-color: #ffffff;
-}
-
-.btn-primary:hover {
-    background-color: #e0e0e0;
-    color: #4a148c;
-    border-color: #e0e0e0;
-}
-
-/* Estilo para los botones de admin y aceptar */
-.btn-admin, .btn-aceptar {
-    margin-top: 20px; /* Espacio encima de los botones */
-}
-
-/* Estilo para el botón de admin */
-.btn-admin {
-    background-color: #4a148c;
+/* Title styles */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
     color: #ffffff;
 }
 
-/* Estilo para el botón de aceptar */
-.btn-aceptar {
-    background-color: #00bcd4;
-    color: #ffffff;
+/* Description styles */
+.description {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #cccccc;
 }
-/* Alineación del botón de aceptar a la derecha */
-.button-container {
-    display: flex;
-    justify-content: center; /* Alinea el contenido al final del contenedor */
-    margin-top: 20px; /* Espacio encima del contenedor del botón */
+
+/* Input group styles */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff; /* Color del texto de la etiqueta */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Submit button styles */
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6200ea; /* Color de fondo del botón */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #3700b3; /* Color de fondo al pasar el cursor */
+}
+
+/* Admin button styles */
+.admin-button {
+    display: block;
+    width: 100px;
+    margin: 0 0 20px 0; /* Ajusta el margen superior para mover el botón hacia arriba */
+    padding: 10px;
+    background-color: #3f3cff; /* Color de fondo del botón Admin */
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+     float: left; /* Alinea el botón a la izquierda */
+}
+
+.admin-button:hover {
+    background-color: #3700b3; /* Color de fondo al pasar el cursor */
+}
+
+/* Error message styles */
+.alert {
+    font-size: 14px;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: #dc3545;
 }
