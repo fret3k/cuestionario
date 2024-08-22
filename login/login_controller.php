@@ -19,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $row = $result->fetch_assoc();
         $_SESSION['username'] = $row['user'];
         $_SESSION['rol'] = $row['rol'];
-
+        $_SESSION['id_user'] = $row['id_user'];
+        $_SESSION['codigo_acceso'] = $row['codigo_acceso'];
         // Redirección según el rol
         if ($row['rol'] == 'administrador') {
             header("Location: administrador.php");

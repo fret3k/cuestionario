@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellido = $_POST['apellido'];
     $telefono = $_POST['telefono'];
     $localidad = $_POST['localidad'];
-    $fechaRegistro = date("Y-m-d ");
+    $fechaRegistro = date("Y-m-d H:i:s");
     
 
 

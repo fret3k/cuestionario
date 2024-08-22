@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'administrador') {
+   
+    header("Location: login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,6 +18,9 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../stilos/adminstyles.css">
+    
+
 </head>
 
 <body>
@@ -31,7 +45,7 @@
                         </li>
                         <h4>Usuarios</h4>
                         <li class="nav-item">
-                            <a class="nav-link" href="crud_usuario.html">
+                            <a class="nav-link" href="crud_usuario.php">
                                 <i class="fas fa-users"></i>
                                 Mostrar
                             </a>
@@ -44,18 +58,29 @@
                 <div class="header d-flex justify-content-between align-items-center">
                     <h1>CONTENIDO PRINCIPAL</h1>
                     <div class="user-info">
-                        <span>Admin</span>
-                        <i class="fas fa-bell ml-3"></i>
-                        <i class="fas fa-user ml-3"></i>
+                        <i  ><?php echo $_SESSION['username'] ."  ".$_SESSION['id_user']; ?> </i>
+                        <a class=" fas fa-user-times ml-3 hover-dark" href="cerrar_secion.php">Salir </a>
+                        <a class=" fas fa-user ml-4 hover-dark" href="crud_usuario.php">Editar Cuenta </a>
                     </div>
                 </div>
 
+                <div class="container mt-5">
+        
+        <form id="codeForm" method="post" action="update_codigo.php">
+        <div class="form-group">
+                <label for="codeInput" >Codigo de Encuesta: <?php echo $_SESSION['codigo_acceso']; ?> </label>
+                <input type="text" class="form-control custom-input" id="codeInput" name="new_code" placeholder="Modificar codigo">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Código</button>
+        </form>
+    </div>
+
                 <div class="container mt-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h2>Lista de Clientes</h2>
-                        <button class="btn btn-primary">
-                            <i class="fas fa-plus"></i>
-                            Add New
+                        <h2>Lista de Encuestados</h2>
+                        <button class="btn btn-success">
+                            <i class="fas"></i>
+                            Exportar aExcel
                         </button>
                     </div>
 

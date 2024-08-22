@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
+   
+    header("Location: login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,19 +49,27 @@
                 <div class="header d-flex justify-content-between align-items-center">
                     <h1>CONTENIDO PRINCIPAL</h1>
                     <div class="user-info">
+
+                    <i  ><?php echo $_SESSION['username'] ."  "; ?> </i>
+                        <a class=" fas fa-user-times ml-3 hover-dark" href="cerrar_secion.php">Salir </a>
+                        <a class=" fas fa-user ml-4 hover-dark" href="crud_usuario.php">Editar Cuenta </a>
+                   
+
                         <span>Admin</span>
                         <i class="fas fa-bell ml-3"></i>
                         <i class="fas fa-user ml-3"></i>
                     </div>
                 </div>
+            
+                <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add New
+                </button>
 
                 <div class="container mt-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h2>Lista de Clientes</h2>
-                        <button class="btn btn-primary">
-                            <i class="fas fa-plus"></i>
-                            Add New
-                        </button>
+                        
                     </div>
 
                     <div class="table-responsive">

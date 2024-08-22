@@ -2,7 +2,7 @@
 // Conexión a la base de datos
 require_once 'conexion.php';
 
-$sql = "SELECT idCliente, apellido, nombre, numero_telefono, localidad, fechaRegistro FROM tcliente";
+$sql = "SELECT idCliente, apellido, nombre, numero_telefono, localidad, fechaRegistro FROM tcliente ORDER BY idCliente DESC";
 $result = $conn->query($sql);
 
 // Generar las filas de la tabla
