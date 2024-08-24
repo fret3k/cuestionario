@@ -1,9 +1,7 @@
 <?php
 // Conexión a la base de datos
 require_once 'conexion.php';
-// Obtener el idCliente desde la URL
-// Obtener el idCliente desde la solicitud GET
-// Verificar conexión
+
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
@@ -35,9 +33,18 @@ if ($result_cliente->num_rows > 0 && $result_respuestas->num_rows > 0) {
     echo "<tr><th>Pregunta 1</th><td>" . $respuestas['pregunta1'] . "</td></tr>";
     echo "<tr><th>Pregunta 2</th><td>" . $respuestas['pregunta2'] . "</td></tr>";
     echo "<tr><th>Pregunta 3</th><td>" . $respuestas['pregunta3'] . "</td></tr>";
-    // Agrega más preguntas y respuestas si es necesario
+    echo "<tr><th>Pregunta 4</th><td>" . $respuestas['pregunta4'] . "</td></tr>";
+    echo "<tr><th>Pregunta 5</th><td>" . $respuestas['pregunta5'] . "</td></tr>";
+    echo "<tr><th>Pregunta 6</th><td>" . $respuestas['pregunta6'] . "</td></tr>";
+    echo "<tr><th>Pregunta 7</th><td>" . $respuestas['pregunta7'] . "</td></tr>";
+    echo "<tr><th>Pregunta 8</th><td>" . $respuestas['pregunta8'] . "</td></tr>";
+    echo "<tr><th>Pregunta 9</th><td>" . $respuestas['pregunta9'] . "</td></tr>";
+    echo "<tr><th>Pregunta 10</th><td>" . $respuestas['pregunta10'] . "</td></tr>";
+    echo "<tr><th>Pregunta 11</th><td>" . $respuestas['pregunta11'] . "</td></tr>";
+    echo "<tr><th>Pregunta 12</th><td>" . $respuestas['pregunta12'] . "</td></tr>";
+    echo "<tr><th>Pregunta 13</th><td>" . $respuestas['pregunta13'] . "</td></tr>";
     echo "<tr><th>Observaciones</th><td>" . $respuestas['observaciones'] . "</td></tr>";
-    
+    echo "<tr><th>encuestador</th><td>" . $respuestas['encuestador'] . "</td></tr>";
     echo "</table>";
 } else {
     echo "<p>No hay respuestas disponibles para este cliente.</p>";

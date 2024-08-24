@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $_SESSION['rol'] = $row['rol'];
         $_SESSION['id_user'] = $row['id_user'];
         $_SESSION['codigo_acceso'] = $row['codigo_acceso'];
+        $_SESSION['nombre'] = $row['nombre'];
+        $_SESSION['apellidos'] = $row['apellidos'];
         // Redirección según el rol
         if ($row['rol'] == 'administrador') {
             header("Location: administrador.php");

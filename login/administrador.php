@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </li>
                         <h4>Inicio</h4>
                         <li class="nav-item">
-                            <a class="nav-link" href="administrador.html">
+                            <a class="nav-link" href="administrador.php">
                                 <i class="fas fa-list"></i>
                                 Mostrar datos
                             </a>
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="header d-flex justify-content-between align-items-center">
                     <h1>CONTENIDO PRINCIPAL</h1>
                     <div class="user-info">
-                        <i  ><?php echo $_SESSION['username'] ."  ".$_SESSION['id_user']; ?> </i>
+                        <i  ><?php echo $_SESSION['nombre'] ."   ".$_SESSION['apellidos']."   "; ?> </i>
                         <a class=" fas fa-user-times ml-3 hover-dark" href="cerrar_secion.php">Salir </a>
                         <a class="fas fa-user ml-4 hover-dark" data-bs-toggle="modal" data-bs-target="#editUserModal">Editar Cuenta</a>
                     </div>
@@ -123,10 +123,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="container mt-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h2>Lista de Encuestados</h2>
-                        <button class="btn btn-success">
-                            <i class="fas"></i>
-                            Exportar aExcel
-                        </button>
+
+                        <form action="exportar.php" method="get">
+                <input type="hidden" name="idCliente" value="<?php echo $idCliente; ?>">
+                <button type="submit" button class="btn btn-success">Exportar a Excel</button>
+                </form>
+
                     </div>
 
                     <div class="table-responsive">
@@ -154,15 +156,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                        <!--carudel de navegacion -->
                     </nav>
                 </div>
-
-                <div class="footer mt-4">
-                    <button class="btn btn-primary">Exportar a Excel</button>
-                </div>
-
-                <form action="exportar.php" method="get">
-                <input type="hidden" name="idCliente" value="<?php echo $idCliente; ?>">
-                <button type="submit">Exportar a Excel</button>
-                </form>
 
             </main>
         </div>

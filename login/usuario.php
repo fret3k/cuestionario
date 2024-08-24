@@ -1,11 +1,55 @@
 <?php
 session_start();
-
+require_once 'conexion.php';
 if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
    
     header("Location: login.php");
     exit;
 }
+
+$updateSuccess = false; 
+// Obtener datos del usuario
+$userId = $_SESSION['id_user'];
+$sql = "SELECT user, contrasenia, nombre, apellidos, rol FROM user WHERE id_user=?";
+$stmt = mysqli_prepare($conn, $sql);
+
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $userId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $user, $contrasenia, $nombre, $apellido, $rol);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+} else {
+    echo "Error en la preparación de la consulta: " . mysqli_error($conn);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user = $_POST['user'];
+    $contrasenia = $_POST['contrasenia'];
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $rol = 'usuario';
+
+    // Actualizar en la base de datos
+    $sql = "UPDATE user SET user=?, contrasenia=?, nombre=?, apellidos=?, rol=? WHERE id_user=?";
+    $stmt = mysqli_prepare($conn, $sql);
+    
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssssss", $user, $contrasenia, $nombre, $apellido, $rol, $userId);
+
+        if (mysqli_stmt_execute($stmt)) {
+            $updateSuccess = true;
+        } else {
+            echo "Error al actualizar el usuario: " . mysqli_error($conn);
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Error en la preparación de la consulta: " . mysqli_error($conn);
+    }
+
+}
+
 
 ?>
 
@@ -25,7 +69,7 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
         <div class="row no-gutters">
             <nav class="col-md-3 col-lg-2 sidebar">
                 <div class="sidebar-sticky">
-                    <h3 class="sidebar-title">ADMIN</h3>
+                    <h3 class="sidebar-title">USUARIO</h3>
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -49,22 +93,12 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
                 <div class="header d-flex justify-content-between align-items-center">
                     <h1>CONTENIDO PRINCIPAL</h1>
                     <div class="user-info">
-
-                    <i  ><?php echo $_SESSION['username'] ."  "; ?> </i>
+                        <i  ><?php echo $_SESSION['nombre'] ."   ".$_SESSION['apellidos']."   "; ?> </i>
                         <a class=" fas fa-user-times ml-3 hover-dark" href="cerrar_secion.php">Salir </a>
-                        <a class=" fas fa-user ml-4 hover-dark" href="crud_usuario.php">Editar Cuenta </a>
+                        <a class="fas fa-user ml-4 hover-dark" data-bs-toggle="modal" data-bs-target="#editUserModal">Editar Cuenta</a>
                 
-
-                        <span>Admin</span>
-                        <i class="fas fa-bell ml-3"></i>
-                        <i class="fas fa-user ml-3"></i>
                     </div>
                 </div>
-            
-                <button class="btn btn-primary">
-                            <i class="fas fa-plus"></i>
-                            Add New
-                </button>
 
                 <div class="container mt-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -96,10 +130,6 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
                     <nav aria-label="Page navigation">
                     <!--carudel de navegacion -->
                     </nav>
-                </div>
-
-                <div class="footer mt-4">
-                    <button class="btn btn-primary">Exportar a Excel</button>
                 </div>
             </main>
         </div>
@@ -145,5 +175,49 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
             });
         }
     </script>
+<!--modal editar-->
+
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Editar Cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm" method="post" action="">
+                        <input type="hidden" id="userId" name="userId" value="<?php echo $userId; ?>">
+                        <div class="mb-3">
+                            <label for="editUser" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="editUser" name="user" value="<?php echo $user; ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editContrasenia" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="editContrasenia" name="contrasenia" value="<?php echo $contrasenia; ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editNombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="editNombre" name="nombre" value="<?php echo $nombre; ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editApellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="editApellido" name="apellido" value="<?php echo $apellido; ?>" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <?php if ($updateSuccess): ?>
+    <script>
+        alert("Usuario actualizado correctamente.");
+    </script>
+<?php endif; ?>
+
+
 </body>
 </html>
