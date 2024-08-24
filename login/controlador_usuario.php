@@ -21,7 +21,7 @@ if (isset($_POST['create'])) {
             VALUES (?,?, ?, ?, ?, ?, ?)";
     
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, 'issssss','null',  $usuario, $contrasenia, $nombre, $apellidos, $rol, $codigo_acceso);
+        mysqli_stmt_bind_param($stmt, 'issssss',null,  $usuario, $contrasenia, $nombre, $apellidos, $rol, $codigo_acceso);
         if (mysqli_stmt_execute($stmt)) {
             header("Location: mostrar_usuarios.php");
             exit;

@@ -53,7 +53,7 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
                     <i  ><?php echo $_SESSION['username'] ."  "; ?> </i>
                         <a class=" fas fa-user-times ml-3 hover-dark" href="cerrar_secion.php">Salir </a>
                         <a class=" fas fa-user ml-4 hover-dark" href="crud_usuario.php">Editar Cuenta </a>
-                   
+                
 
                         <span>Admin</span>
                         <i class="fas fa-bell ml-3"></i>
