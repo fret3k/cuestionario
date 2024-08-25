@@ -61,11 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../stilos/adminstyles.css">
     
-
+    <style>
+  
+</style>
 </head>
 
 <body>
@@ -102,11 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <main class="col-md-9 col-lg-10 main-content">
                 <div class="header d-flex justify-content-between align-items-center">
                     <h1>CONTENIDO PRINCIPAL</h1>
-                    <div class="user-info">
-                        <i  ><?php echo $_SESSION['nombre'] ."   ".$_SESSION['apellidos']."   "; ?> </i>
-                        <a class=" fas fa-user-times ml-3 hover-dark" href="cerrar_secion.php">Salir </a>
-                        <a class="fas fa-user ml-4 hover-dark" data-bs-toggle="modal" data-bs-target="#editUserModal">Editar Cuenta</a>
-                    </div>
+                    <div class="user-info d-flex align-items-center">
+                    <i><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellidos']; ?></i>
+                    <button class="btn btn-danger ms-3" onclick="window.location.href='cerrar_secion.php'">Salir</button>
+                    <button class="btn btn-secondary ms-3" data-bs-toggle="modal" data-bs-target="#editUserModal">Editar Cuenta</button>
+    </div>
                 </div>
 
                 <div class="container mt-5">

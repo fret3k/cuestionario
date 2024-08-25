@@ -2,46 +2,46 @@
     display: none;
 }
 
-.wide-display {
-    width: 100%; /* O el ancho deseado, por ejemplo, 80% o una cantidad específica como 500px */
-    max-width: 180px; /* Limitar el ancho máximo */
-    margin: 800px; /* Centrar el contenedor */
-}
 
 /* Estilos para el fondo de la página */
 body {
     /* Fondo degradado azul claro a azul oscuro */
-    background: linear-gradient(to right, #00aaff, #0044cc);
+    background: linear-gradient(to bottom right, #00aaff, #0044cc);
     height: 100vh;
     margin: 0;
     display: flex;
-    align-items: flex-start; /* Cambiado a flex-start para evitar centrar verticalmente */
-    justify-content: center; /* Centramos el contenido horizontalmente */
-    padding: 20px; /* Añadir algo de espacio interno alrededor del contenido */
+    align-items: flex-start; 
+    justify-content: center; 
+    padding: 20px;
 }
 
 .container {
-    width: 150%; /* Ocupa el 100% del ancho disponible */
-    max-width: 2160px; /* Limita el ancho máximo para que no se vea demasiado ancho en pantallas grandes */
+    
+        width: 100%; 
+        max-width: 1200px; 
+        margin: 0 auto;
+        padding: 20px; 
+    
+    
 }
 
 /* Estilos para el cuadro de registro con fondo transparente */
 #registro-card {
-    background: rgba(255, 255, 255, 0.452); /* Fondo morado oscuro con opacidad de 0.8 */
-    color: #ffffff; /* Texto blanco para contraste */
+    background: rgba(68, 68, 68, 0.329); 
+    color: #ffffff; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 90%; /* Ajusta el ancho máximo para que sea más flexible en pantallas pequeñas */
-    width: 500px; /* Ancho específico para el cuadro de registro */
+    max-width: 100%;
+    width: 720px; 
 }
 
 /* Estilos para las etiquetas del formulario */
 .form-group label {
-    color: #000000; /* Etiquetas en blanco para contraste */
+    color: #000000; 
 }
 
-/* Estilos para el botón primario */
+
 .btn-primary {
     background-color: #ffffff;
     color: #1e1ae4;
@@ -62,19 +62,19 @@ body {
     margin: 0;
     padding: 0;
     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-    background-size: cover; /* Asegura que el fondo cubra toda la página */
-    background-attachment: fixed; /* Fija el fondo al desplazamiento de la página */
-    background-repeat: no-repeat; /* Evita que el fondo se repita */
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
 }
 /**/
 /* Estilos para el textarea */
 textarea.custom-textarea {
-    width: 100%; /* Hace que el textarea ocupe el ancho completo de su contenedor */
-    max-width: 800px; /* Establece un ancho máximo para evitar que se expanda demasiado */
-    min-height: 100px; /* Aumenta la altura mínima del textarea */
-    padding: 10px; /* Agrega un poco de relleno interno */
-    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y alto total */
-    resize: vertical; /* Permite cambiar el tamaño verticalmente */
+    width: 100%; 
+    max-width: 800px; 
+    min-height: 100px; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    resize: vertical; 
 }
 
 /* Estilos para el contenedor del cuestionario */
@@ -82,7 +82,7 @@ textarea.custom-textarea {
     border: 1px solid #b5c4b3;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #a4ccb5; /* Color de fondo más claro para el cuadro */
+    background-color: #a4ccb5; 
     padding: 20px;
     margin: 20px auto;
     max-width: 1080px auto;
@@ -94,7 +94,7 @@ textarea.custom-textarea {
     font-size: 1.2em;
     margin-bottom: 15px;
     color: #333;
-    background-color: #e2e2e2; /* Fondo ligeramente gris para los encabezados */
+    background-color: #e2e2e2; 
     padding: 10px;
     border-radius: 4px;
 }
@@ -108,67 +108,71 @@ textarea.custom-textarea {
 /* Estilos para las opciones de respuestas */
 .options {
     display: flex;
-    justify-content: center; /* Centra las opciones horizontalmente */
+    justify-content: center; 
     gap: 15px;
     margin-top: 10px;
 }
 
 /* Estilos para los botones de radio y sus etiquetas */
 .options input[type="radio"] {
-    display: none; /* Oculta los botones de radio */
+    display: none; 
 }
 
 .options label {
     display: inline-block;
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Círculo */
+    border-radius: 50%; 
     text-align: center;
     line-height: 40px;
     cursor: pointer;
     font-weight: bold;
     color: #fff;
-    transition: background-color 0.3s, border 0.3s; /* Transición suave para el cambio de color */
+    transition: background-color 0.3s, border 0.3s; 
 }
 
 /* Colores para las opciones */
 
 .label-green {
-    background-color:  #28a745; /* Verde */
+    background-color:  #28a745; 
 }
 
 .label-yellow {
-    background-color:  #ffc107; /* Amarillo */
+    background-color:  #ffc107; 
 }
 
 .label-orange {
-    background-color:  #fd7e14; /* Naranja */
+    background-color:  #fd7e14; 
 }
 
 .label-red {
-    background-color:  #dc3545; /* Rojo */
+    background-color:  #dc3545; 
 }
 
 
 /* Resaltar la opción seleccionada */
 .options input[type="radio"]:checked + label {
     border: 3px solid #000;
-    background-color: #333; /* Fondo oscuro para el seleccionado */
-    color: #fff; /* Texto blanco para la opción seleccionada */
-    font-weight: bold; /* Negrita para el texto seleccionado */
+    background-color: #333; 
+    color: #fff;
+    font-weight: bold; 
 }
 
 /* Estilos para cada ítem de la lista */
 ol > li {
-    margin-bottom: 30px; /* Espacio inferior entre cada pregunta */
-    padding-bottom: 20px; /* Espacio interno en la parte inferior de cada pregunta */
-    border-bottom: 2px solid #ddd; /* Línea de separación entre preguntas, grosor aumentado */
-    padding-top: 15px; /* Espacio interno en la parte superior de cada pregunta */
+    margin-bottom: 40px; 
+    padding-bottom: 20px; 
+    border-bottom: 2px solid #222121; 
+    padding-top: 15px; 
 }
 
 /* Opcional: Espacio adicional para la última pregunta */
 ol > li:last-child {
-    border-bottom: none; /* Elimina la línea de separación en la última pregunta */
-    margin-bottom: 0; /* Elimina el margen inferior en la última pregunta */
+    border-bottom: none; 
+    margin-bottom: 0; 
+}
+
+.negrita {
+    font-weight: bold; 
 }
 

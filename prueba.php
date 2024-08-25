@@ -64,7 +64,7 @@ echo 'el id es :';
 
 // Consulta SQL para insertar datos en la nueva tabla
 $sql = "INSERT INTO tcliente  VALUES 
-('$idCliente','$nombre', '$apellido', '$telefono','$fechaRegistro','$localidad')";
+('$idCliente','$apellido', '$nombre', '$telefono','$fechaRegistro','$localidad')";
 
 
 $sql1 = "INSERT INTO trespuestascliente 

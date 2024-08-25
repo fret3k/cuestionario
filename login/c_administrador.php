@@ -2,7 +2,7 @@
 // Conexión a la base de datos
 require_once 'conexion.php';
 
-$sql = "SELECT idCliente, apellido, nombre, numero_telefono, localidad, fechaRegistro FROM tcliente ORDER BY idCliente DESC";
+$sql = "SELECT idCliente, nombre, apellido, numero_telefono, localidad, fechaRegistro FROM tcliente ORDER BY idCliente DESC";
 $result = $conn->query($sql);
 
 // Generar las filas de la tabla
@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='6'>No hay registros disponibles</td></tr>";
+    echo "<tr><td colspan='4'>No hay registros disponibles</td></tr>";
 }
 
 $conn->close();

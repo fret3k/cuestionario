@@ -6,4 +6,15 @@
     font-size: 16px; /* Ajusta el tamaño de la fuente */
 }
 
+.sidebar-title {
+    margin-bottom: 20px; /* Margen inferior para el título */
+}
+.nav-item {
+    margin-bottom: 10px; /* Margen inferior para los elementos de la lista */
+}
+h4 {
+    margin-top: 20px; /* Margen superior para los encabezados */
+    margin-bottom: 10px; /* Margen inferior para los encabezados */
+}
+
 
