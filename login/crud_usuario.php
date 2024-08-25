@@ -109,7 +109,7 @@ $usuarios = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="user-info d-flex align-items-center">
                     <i><?php echo $_SESSION['nombre'] . " " . $_SESSION['apellidos']; ?></i>
                     <button class="btn btn-danger ms-3" onclick="window.location.href='cerrar_secion.php'">Salir</button>
-                    <button class="btn btn-secondary ms-3" data-bs-toggle="modal" data-bs-target="#editUserModal">Editar Cuenta</button>
+        
     </div>
                 </div>
 
