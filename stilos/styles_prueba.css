@@ -2,99 +2,79 @@
     display: none;
 }
 
-
-/* Estilos para el fondo de la página */
 body {
-    /* Fondo degradado azul claro a azul oscuro */
-    background: linear-gradient(to bottom right, #00aaff, #0044cc);
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    align-items: flex-start; 
-    justify-content: center; 
-    padding: 20px;
-}
-
-.container {
-    
-        width: 100%; 
-        max-width: 1200px; 
-        margin: 0 auto;
-        padding: 20px; 
-    
-    
-}
-
-/* Estilos para el cuadro de registro con fondo transparente */
-#registro-card {
-    background: rgba(68, 68, 68, 0.329); 
-    color: #ffffff; 
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 100%;
-    width: 720px; 
-}
-
-/* Estilos para las etiquetas del formulario */
-.form-group label {
-    color: #000000; 
-}
-
-
-.btn-primary {
-    background-color: #ffffff;
-    color: #1e1ae4;
-    border-color: #ffffff;
-}
-
-/* Estilos para el botón primario en estado hover */
-.btn-primary:hover {
-    background-color: #e0e0e0;
-    color: #0323d4;
-    border-color: #e0e0e0;
-}
-
- 
-/*estilos cuestionario*/
-/* Aplicar el fondo degradado al elemento body */
-body {
-    margin: 0;
-    padding: 0;
     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-    background-size: cover; 
-    background-attachment: fixed; 
+    background-size: auto; /* Asegura que el fondo cubra toda la página */
+    background-attachment: fixed;
     background-repeat: no-repeat; 
-}
-/**/
-/* Estilos para el textarea */
-textarea.custom-textarea {
-    width: 100%; 
-    max-width: 800px; 
-    min-height: 100px; 
-    padding: 10px; 
-    box-sizing: border-box; 
-    resize: vertical; 
-}
-
-/* Estilos para el contenedor del cuestionario */
-#cuestionario-card {
-    border: 1px solid #b5c4b3;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #a4ccb5; 
+    font-family: Arial, sans-serif;
+    margin: 20px;
     padding: 20px;
-    margin: 20px auto;
-    max-width: 1080px auto;
+    background-color: #5c53531c;
+    border-radius: 8px;
 }
 
+h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    padding: 10px;
+    margin: 5px 0;
+    width: calc(100% - 22px);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+
+.card {
+    background-color: #d8d8d898; /* Fondo blanco para la tarjeta */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card-header {
+    background-color: #007bff; /* Color de fondo para el encabezado */
+    color: white; /* Color del texto en el encabezado */
+    padding: 10px;
+    border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+    font-weight: bold;
+}
+
+.cuestionario {
+    display: none; /* Ocultar el cuestionario inicialmente */
+}
+
+.custom-textarea {
+    width: 100%;
+    height: 100px;
+}
 /* Estilos para el encabezado de la tarjeta */
 .card-header {
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 15px;
     color: #333;
-    background-color: #e2e2e2; 
+    background-color: #e2e2e2; /* Fondo ligeramente gris para los encabezados */
     padding: 10px;
     border-radius: 4px;
 }
@@ -108,71 +88,72 @@ textarea.custom-textarea {
 /* Estilos para las opciones de respuestas */
 .options {
     display: flex;
-    justify-content: center; 
+    justify-content: center; /* Centra las opciones horizontalmente */
     gap: 15px;
     margin-top: 10px;
 }
 
 /* Estilos para los botones de radio y sus etiquetas */
 .options input[type="radio"] {
-    display: none; 
+    display: none; /* Oculta los botones de radio */
 }
 
 .options label {
     display: inline-block;
     width: 40px;
     height: 40px;
-    border-radius: 50%; 
+    border-radius: 50%; /* Círculo */
     text-align: center;
     line-height: 40px;
     cursor: pointer;
     font-weight: bold;
     color: #fff;
-    transition: background-color 0.3s, border 0.3s; 
+    transition: background-color 0.3s, border 0.3s; /* Transición suave para el cambio de color */
 }
 
 /* Colores para las opciones */
 
 .label-green {
-    background-color:  #28a745; 
+    background-color:  #28a745; /* Verde */
 }
 
 .label-yellow {
-    background-color:  #ffc107; 
+    background-color:  #ffc107; /* Amarillo */
 }
 
 .label-orange {
-    background-color:  #fd7e14; 
+    background-color:  #fd7e14; /* Naranja */
 }
 
 .label-red {
-    background-color:  #dc3545; 
+    background-color:  #dc3545; /* Rojo */
 }
 
 
 /* Resaltar la opción seleccionada */
 .options input[type="radio"]:checked + label {
     border: 3px solid #000;
-    background-color: #333; 
-    color: #fff;
-    font-weight: bold; 
+    background-color: #333; /* Fondo oscuro para el seleccionado */
+    color: #fff; /* Texto blanco para la opción seleccionada */
+    font-weight: bold; /* Negrita para el texto seleccionado */
 }
 
 /* Estilos para cada ítem de la lista */
 ol > li {
-    margin-bottom: 40px; 
-    padding-bottom: 20px; 
-    border-bottom: 2px solid #222121; 
-    padding-top: 15px; 
+    margin-bottom: 30px; /* Espacio inferior entre cada pregunta */
+    padding-bottom: 20px; /* Espacio interno en la parte inferior de cada pregunta */
+    border-bottom: 2px solid #ddd; /* Línea de separación entre preguntas, grosor aumentado */
+    padding-top: 15px; /* Espacio interno en la parte superior de cada pregunta */
 }
 
 /* Opcional: Espacio adicional para la última pregunta */
 ol > li:last-child {
-    border-bottom: none; 
-    margin-bottom: 0; 
+    border-bottom: none; /* Elimina la línea de separación en la última pregunta */
+    margin-bottom: 0; /* Elimina el margen inferior en la última pregunta */
 }
 
 .negrita {
-    font-weight: bold; 
+    font-weight: bold; /* Aplica negrita al texto */
+    color: #333; /* Color del texto */
 }
 
